@@ -7,13 +7,43 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
   <title>Daftar Barang</title>
+  <style>
+    /* Style for the table */
+    #example th {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      padding: 12px 8px;
+      text-align: left;
+    }
+
+    #example td {
+      padding: 8px;
+      text-align: left;
+    }
+
+    /* Alternate row color */
+    #example tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
 </head>
 <body class="bg-gray-100">
   <div class="container mx-auto py-8">
     <div class="max-w-3xl mx-auto bg-white p-6 rounded shadow-md">
-	<h1 class="text-center text-3xl mb-6">Warung Setya</h1>
+      <h1 class="text-center text-3xl mb-6">Warung Setya</h1>
       <h3 class="text-center text-3xl mb-6">Daftar Barang</h3>
-      <table id="example" class="table-auto w-full border-collapse border border-gray-300"></table>
+      <table id="example" class="table-auto w-full border-collapse border border-gray-300">
+        <thead>
+          <tr>
+            <th class="px-4 py-2">Nama</th>
+            <th class="px-4 py-2">Harga</th>
+            <th class="px-4 py-2">Satuan</th>
+            <th class="px-4 py-2">Promo</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
       <p class="mt-6" id="passingGrade"></p>
     </div>
   </div>
@@ -25,22 +55,16 @@
       $("#example").DataTable({
         ajax: "https://script.google.com/macros/s/AKfycbzUMQvXWCNigbQ04Q0WT5sWaFRdJOjhG1W0nmBRdoGGnwAGgteyuJWmoExqe8BvbExq/exec",
         columns: [
-          {
-            title: "Nama",
-            data: "Nama",
-          },
+          { title: "Nama", data: "Nama" },
           {
             title: "Harga",
             data: "Harga",
+            render: function (data, type, row) {
+              return '<div class="text-right">' + data + '</div>';
+            }
           },
-	{
-            title: "Satuan",
-            data: "Satuan",
-          },
-	{
-            title: "Promo",
-            data: "Promo",
-          },
+          { title: "Satuan", data: "Satuan" },
+          { title: "Promo", data: "Promo" },
         ],
         rowId: "Nama",
         liveAjax: true,
