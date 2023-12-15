@@ -14,12 +14,12 @@
       color: white;
       font-weight: bold;
       padding: 12px 8px;
-      text-align: left;
+      text-align: center; /* Menengahkan teks pada judul kolom */
     }
 
     #example td {
       padding: 8px;
-      text-align: left;
+      text-align: center; /* Menengahkan teks pada sel data */
     }
 
     /* Alternate row color */
@@ -55,7 +55,13 @@
       $("#example").DataTable({
         ajax: "https://script.google.com/macros/s/AKfycbzUMQvXWCNigbQ04Q0WT5sWaFRdJOjhG1W0nmBRdoGGnwAGgteyuJWmoExqe8BvbExq/exec",
         columns: [
-          { title: "Nama", data: "Nama" },
+          {
+            title: "Nama",
+            data: "Nama",
+            render: function (data, type, row) {
+              return '<div class="text-left">' + data + '</div>';
+            }
+          },
           {
             title: "Harga",
             data: "Harga",
@@ -63,8 +69,15 @@
               return '<div class="text-right">' + data + '</div>';
             }
           },
-          { title: "Satuan", data: "Satuan" },
-          { title: "Promo", data: "Promo" },
+          { title: "Satuan", data: "Satuan"},
+          {
+            title: "Promo",
+            data: "Promo",
+            render: function (data, type, row) {
+              return '<div class="text-justify">' + data + '</div>';
+            },
+            className: "px-4 py-2 text-center"
+          },
         ],
         rowId: "Nama",
         liveAjax: true,
