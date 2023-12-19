@@ -6,9 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="bootstrap.css">
   <title>Daftar Barang</title>
   <style>
     /* Style for the table */
+	
     #example th {
       background-color: #4CAF50;
       color: white;
@@ -29,24 +32,89 @@
   </style>
 </head>
 <body class="bg-gray-100">
-  <div class="container mx-auto py-8">
-    <div class="max-w-3xl mx-auto bg-white p-6 rounded shadow-md">
-      <h1 class="text-center text-3xl mb-6">Warung Setya</h1>
-      <h3 class="text-center text-3xl mb-6">Daftar Barang</h3>
-      <table id="example" class="table-auto w-full border-collapse border border-gray-300">
-        <thead>
-          <tr>
-            <th class="px-4 py-2">Nama</th>
-            <th class="px-4 py-2">Harga</th>
-            <th class="px-4 py-2">Satuan</th>
-            <th class="px-4 py-2">Promo</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-      <p class="mt-6" id="passingGrade"></p>
+
+	<div class="container1">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <div style="display: flex; align-items: center;">
+		  <img src="gg.png" alt="Logo" class="img-fluid" width="200px">
+		  <h1 style="margin: 0 10px;">|</h1>
+		  <span>WARUNG SATYA</span>
+		</div>
+      </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Tampil Data</a>
+        </li>
+			<a class="nav-link" href="#about" onclick="smoothScroll('about')">About us</a>
+		</li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Create</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://docs.google.com/spreadsheets/d/1NpWyUquZDbzJVnYqssE3j9YBMYpyXAYkY_jBHHrd4oM/edit#gid=0">Database</a>
+        </li>
+      </ul>
     </div>
+	
+	<script>
+	  function smoothScroll(target) {
+		const targetElement = document.getElementById(target);
+		targetElement.scrollIntoView({ behavior: 'smooth' });
+	  }
+	</script>
+	
+  </nav>
   </div>
+  
+  <div class="container1">
+    <div class="container mx-auto py-8">
+	<section class="bg-white-300 p-4">
+		<div class="container mx-auto py-8 flex items-center justify-center">
+			<div class="max-w-3xl mx-auto bg-white p-6 rounded shadow-md" style="box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;">
+				<h3 class="text-center text-3xl mb-6">Daftar Barang</h3>
+			  <table id="example" class="table-auto w-full border-collapse border border-gray-300">
+				<thead>
+				  <tr>
+					<th class="px-4 py-2">Nama</th>
+					<th class="px-4 py-2">Harga</th>
+					<th class="px-4 py-2">Satuan</th>
+					<th class="px-4 py-2">Promo</th>
+				  </tr>
+				</thead>
+				<tbody></tbody>
+			  </table>
+			  <p class="mt-6" id="passingGrade"></p>
+			 </div>
+		</div>
+	</section>
+  </div>
+  </div>
+  
+  <div class="container1">
+  <!-- Content Section -->
+  <section class="content" id="about">
+    <div class="container">
+      <h2>About us</h2>
+      <p>Website statis yang telah saya buat adalah untuk Storage Resource Management yang memanfaatkan Google Spreadsheets API sebagai basis data. Melalui integrasi dengan API tersebut, website ini memungkinkan pengguna untuk melacak dan mengelola sumber daya penyimpanan dengan mudah dan efisien. Dengan pendekatan statis, website ini menawarkan keterjangkauan serta kemudahan dalam pengelolaan data penyimpanan tanpa memerlukan server backend yang kompleks.</p>
+    </div>
+  </section>
+</div>
+
+<div class="container1">
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2023 Teddy Sawon. All Rights Reserved.</p>
+    </div>
+  </footer>
+</div>
+  
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
